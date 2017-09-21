@@ -39,15 +39,21 @@ describe('deepEqual module test', () => {
         expect(true).toEqual(deepEqual(ob1,ob2));
     });
 
-    it('When ob1 and ob2 are different objects return false', function() {
+    it('1 When ob1 and ob2 are different objects return false', function() {
         const ob1 = {"hola":1, "que":2, "tal":3};
         const ob2 = {"hola":1, "que":2, "tal":4};
         expect(false).toEqual(deepEqual(ob1,ob2));
     });
 
-    it('When ob1 and ob2 are different objects return false', function() {
+    it('2 When ob1 and ob2 are different objects return false', function() {
         const ob2 = {"hola":1, "que":2, "tal":3, 1:1};
         const ob1 = {"hola":1, "que":2, "tal":3};
+        expect(false).toEqual(deepEqual(ob1,ob2));
+    });
+
+    it('3 When ob1 and ob2 are different objects return false', function() {
+        const ob2 = {"hola":1, "que":2, "tal":3, 1:1};
+        const ob1 = {"hola":1, "que":2, "tal":3, 1:{1:1, 2:2}};
         expect(false).toEqual(deepEqual(ob1,ob2));
     });
 });
