@@ -1,7 +1,7 @@
 describe('deepEqual module test', () => {
     "use strict";
 
-    const DeepEqual = require('../../lib/cap4/deepEqual');
+    const DeepEqual = require('../lib/cap04');
     const areObjectType = DeepEqual().areObjectType;
     const deepEqual = DeepEqual().deepEqual;
 
