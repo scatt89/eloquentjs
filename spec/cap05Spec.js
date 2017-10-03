@@ -15,10 +15,11 @@ describe('Array patterns test', () => {
 
 });
 
+const cap05Module = require('../lib/cap05');
+
 describe('Flattening Test', () => {
     "use strict";
 
-    const cap05Module = require('../lib/cap05');
     const flatteningObject = cap05Module().flattening;
 
     it('when arrays invoked, result should be only one array', () => {
@@ -32,5 +33,15 @@ describe('Flattening Test', () => {
 
     it('when arrays with multiply empty arrays is invoked, result should be only one empty array', () => {
         expect([]).toEqual(flatteningObject([[],[],[]]));
+    });
+});
+
+describe('Multi level flattening', () => {
+    'use strict';
+
+    const multiLevelFlattening = cap05Module().multiLevelFlattening;
+
+    it('When pass multilevel array, should be flatt and return only one array', () => {
+        expect([1,2,3,4,5,6,7,8,9]).toEqual(multiLevelFlattening([[[1],[2]],[3],[4,5],[[[7],8],9,[[[]]]]]));
     });
 });
