@@ -55,6 +55,6 @@ describe('Ancestry average calculation', () => {
     const ancestry = JSON.parse(require('../lib/resources/ancestry.js'));
 
     it('average should be', () => {
-        expect(31.2).toEqual(calculateAncestryAverage(ancestry));
+        expect(30.9375).toEqual(calculateAncestryAverage(ancestry));
     });
 });
