@@ -48,13 +48,24 @@ describe('Multi level flattening', () => {
     });
 });
 
+const ancestry = JSON.parse(require('../lib/resources/ancestry.js'));
+
 describe('Ancestry average calculation', () => {
     'use strict';
 
     const calculateAncestryAverage = cap05Module.calculateAncestryAverage;
-    const ancestry = JSON.parse(require('../lib/resources/ancestry.js'));
 
     it('average should be', () => {
         expect(30.9375).toEqual(calculateAncestryAverage(ancestry));
+    });
+});
+
+describe('Historial life expectancy', () => {
+    'use strict';
+
+    const historicalLifeExpectancy = cap05Module.historicalLifeExpectancy;
+
+    it('historicalLifeExpectancy should be pass if array return are equal', () => {
+        expect(historicalLifeExpectancy(ancestry)).toHistoricalLifeExpectancyEqual([{century: '16', average: '43.5'},{century: '17', average:'51.2'},{century: '18', average: '52.8'},{century: '19', average:'54.8'},{century: '20', average:'84.7'},{century: '21', average:'94.0'}]);
     });
 });
