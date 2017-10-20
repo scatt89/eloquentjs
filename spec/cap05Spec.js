@@ -69,3 +69,31 @@ describe('Historial life expectancy', () => {
         expect(historicalLifeExpectancy(ancestry)).toHistoricalLifeExpectancyEqual([{century: '16', average: '43.5'},{century: '17', average:'51.2'},{century: '18', average: '52.8'},{century: '19', average:'54.8'},{century: '20', average:'84.7'},{century: '21', average:'94.0'}]);
     });
 });
+
+describe('Function custom every', () => {
+    "use strict";
+
+    const customEvery = cap05Module.customEvery;
+
+    it('function every should be pass if function return true', () => {
+        expect(customEvery([1, 2, 3, 4], number => typeof number === 'number')).toEqual(true);
+    });
+
+    it('function every should be pass if function return false', () => {
+        expect(customEvery([1, 2, 3, 4, '5'], number => typeof number === 'number')).toEqual(false);
+    });
+});
+
+describe('Function custom some', () => {
+    "use strict";
+
+    const customSome = cap05Module.customSome;
+
+    it('function some should be pass if any value return true', () => {
+        expect(customSome([1, 2, 3, 4, '5'], number => typeof number === 'string')).toEqual(true);
+    });
+
+    it('function every should not pass if no one value return false', () => {
+        expect(customSome([1, 2, 3, 4], number => typeof number === 'string')).toEqual(false);
+    });
+});
